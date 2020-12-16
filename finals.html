@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TheFinals</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="finals.css">
+
+</head>
+<body>
+
+<h3>Fill out the form below and click Register</h3>
+
+<br>
+
+<form name="register" method="post" onsubmit="return validateForm()" >
+
+<div class="mb-3 row">
+    <label for="fname" class="col-sm-2 col-form-label">First Name: </label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="fname" >
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="mname" class="col-sm-2 col-form-label">Middle Name: </label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="mname" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="lname" class="col-sm-2 col-form-label">Last Name: </label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="lname" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="cnumber" class="col-sm-2 col-form-label">Contact Number: </label>
+    <div class="col-sm-2">
+      <input type="number" class="form-control" id="cnumber" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="email" class="col-sm-2 col-form-label">Email Address: </label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="email" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="uname" class="col-sm-2 col-form-label">User Name: </label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="uname" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="psw" class="col-sm-2 col-form-label">Password: </label>
+    <div class="col-sm-2">
+      <input type="password" class="form-control" id="psw" required>
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <label for="psw" class="col-sm-2 col-form-label">Confrim Password: </label>
+    <div class="col-sm-2">
+      <input type="password" class="form-control" id="confirm_password" >
+    </div>
+</div>
+<div class="rgstr" style="padding-left: 350px;">
+<input type="submit" value="Register" style="background-color: green;">
+</div>
+
+<h1 id="success">...</h1>
+</form>
+
+
+
+
+
+
+<script type="text/javascript">
+	
+	function validateForm(){
+		var x = document.forms["register"]["fname"].value;
+		if (x == "" || x == null) {
+			alert("Name must be filled out")
+			return false;
+
+		}
+	}
+
+	var password = document.getElementById("psw")
+	, confirm_password = document.getElementById("confirm_password");
+
+	function validatePassword(){
+		if (psw.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Password don't match");
+	}else{
+		confirm_password.setCustomValidity('');
+
+		document.getElementById('success').innerHTML = "Registration Successfull"
+		
+		}
+	}
+	psw.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+
+	
+
+
+</script>
+
+</body>
+</html>
